@@ -10,3 +10,8 @@ const getAllProfiles = async () => {
 
 // All of the endpoints in this file can be exported below
 export { getAllProfiles };
+
+
+// file that does the fetching for me!!
+// keep for referencing says Michael!
+// this queries the end point in the server side

@@ -1,43 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React from 'react'
+import Header from './components/Header';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import './App.css';
+import Home from './pages/Home';
+import About from './pages/About';
+import Referees from './pages/Referees';
+// import {getAllProfiles} from './services/profileService.js';
 
-// SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllProfiles } from "./services/profileService";
+function App() { 
+  // const myProfiles = getAllProfiles();
+  // console.log(getAllProfiles)
+  return ( 
+    <div className="App">
+      <header className="App-header">
+              <Router>          
+          <Header />
+          <Routes>
 
-function App() {
-  const [profiles, setProfiles] = useState(null);
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/referees" element={<Referees />}></Route>
 
-  useEffect(() => {
-    async function getProfiles() {
-      if (!profiles) {
-        const response = await getAllProfiles();
-        setProfiles(response);
-      }
-    }
+          </Routes>
+        </Router>
+        {/* <p>{myProfiles}</p> */}
 
-    getProfiles();
-  }, [profiles]);
 
-  const renderProfile = (user) => {
-    return (
-      <li key={user._id}>
-        <h3>
-          {`${user.first_name} 
-          ${user.last_name}`}
-        </h3>
-        <p>{user.location}</p>
-      </li>
-    );
-  };
-
-  return (
-    <div>
-      <ul>
-        {profiles && profiles.length > 0 ? (
-          profiles.map((profile) => renderProfile(profile))
-        ) : (
-          <p>No profiles found</p>
-        )}
-      </ul>
+        </header>
+        
     </div>
   );
 }

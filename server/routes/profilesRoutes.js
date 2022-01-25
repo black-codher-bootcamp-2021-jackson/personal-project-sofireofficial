@@ -4,7 +4,7 @@ const Profile = mongoose.model("profiles");
 const profileRoutes = (app) => {
   app.get(`/api/profile`, async (req, res) => {
     const profiles = await Profile.find();
-
+// see here!!! See profileService.js
     return res.status(200).send(profiles);
   });
 
