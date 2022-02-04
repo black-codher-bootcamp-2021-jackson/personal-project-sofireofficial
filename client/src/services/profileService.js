@@ -3,8 +3,8 @@
 import axios from "axios";
 
 const getAllProfiles = async () => {
-  const response = await axios.get(`/api/profile`);
-
+  const response = await axios.get(`/blog`);
+// console.log(response);
   return response.data || [];
 };
 

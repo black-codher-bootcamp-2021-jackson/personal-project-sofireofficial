@@ -4,7 +4,7 @@ const Coaching = () => {
 return (
     <div>
       <h1>⭐Coaching⭐</h1>
-      <p style={{color:"#775b1d"}}>This is the Coaching page</p>
+      <p className="Page-info">👩‍🏫 <br /> This is the Coaching page</p>
     </div>
 );
 };

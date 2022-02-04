@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Header from './components/Header';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
@@ -8,12 +8,20 @@ import Resources from './pages/Resources';
 import Workshop from './pages/Workshop';
 import Coaching from './pages/Coaching';
 import Career from './pages/Career';
+import Blog from './pages/Blog';
 
-// import {getAllProfiles} from './services/profileService.js';
+import {getAllProfiles} from './services/profileService.js';
+// more services imported above!!!
 
+// ******************* Ed's help below! :)
 function App() { 
-  // const myProfiles = getAllProfiles();
-  // console.log(getAllProfiles)
+  const [myProfiles, setMyProfiles] = useState({});
+  console.log(getAllProfiles())
+  useEffect(() => {
+    getAllProfiles().then((data) => {setMyProfiles(data)}) // calling API!
+  }, []
+  )
+
   return ( 
     <div>
     <div className="App">
@@ -28,11 +36,12 @@ function App() {
             <Route path="/workshop" element={<Workshop />}></Route>
             <Route path="/coaching" element={<Coaching />}></Route>
             <Route path="/career" element={<Career />}></Route>
+            <Route path="/blog" element={<Blog />}></Route>
 
           </Routes>
         </Router>
-        {/* <p>{myProfiles}</p> */}
-
+        <p>{JSON.stringify(myProfiles)}</p>
+          <p>Hello from App.js!</p>
 
         </header>
         

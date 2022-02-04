@@ -2,10 +2,10 @@ import React, {useState, useEffect} from "react";
 
 const Shop = () => {
 
-const [toDos, setToDos] = useState([]);
+const [items, setItems] = useState([]);
 useEffect( () => {
-  // console.log('shop page here')
-  fetch('http://localhost:8080/todo', {mode:'no-cors'})
+  console.log('shop page here')
+  fetch('http://localhost:8000/shop', {mode:'no-cors'})
   .then(response => response.json())
   .then(data => console.log(data));
 }, []);
@@ -17,11 +17,11 @@ useEffect( () => {
 return (
     <div>
       <h1>⭐Shop⭐</h1>
-      <p style={{color:"#775b1d"}}> This is the Shopping Page</p>
+      <p className="Page-info"> 🛒 <br/> This is the Shopping Page  </p>
       <ul>
-        {toDos.map(toDo => {
+        {items.map(item => {
             return (
-              <li>{toDo.name}</li>
+              <li>{item.name}</li>
             )
         })}
       </ul>

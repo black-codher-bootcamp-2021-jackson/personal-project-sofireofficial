@@ -24,7 +24,16 @@
   color: rgb(228, 212, 212);
 }
 
-.App-link {
+.Fixed-header, a {
+  color: black;
+  background-color: yellow;
+}
+
+/* .App-link {
+  color: #775b1d;
+} */
+
+.Page-info {
   color: #775b1d;
 }
 
